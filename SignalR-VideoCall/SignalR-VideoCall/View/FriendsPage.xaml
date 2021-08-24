@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:VM="clr-namespace:SignalRVideoCall.ViewModel"
+             x:Class="SignalRVideoCall.View.FriendsPage"
+             Title="Friends"
+             x:Name="FriendsPageName">
+    
+    <ContentPage.BindingContext>
+        <VM:FriendsPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <CollectionView ItemsSource="{Binding FriendsList}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItem Text="Video Call"
+                                       IconImageSource="video_call.png"
+                                       Command="{Binding Source={x:Reference FriendsPageName}, Path=BindingContext.VideoCallCommand}" CommandParameter="{Binding .}"
+                                       BackgroundColor="#007E33"/>
+                            <SwipeItem Text="Message"
+                                       IconImageSource="message"
+                                       Command="{Binding Source={x:Reference FriendsPageName}, Path=BindingContext.GoToPrivateDiscussionCommand}" CommandParameter="{Binding .}"
+                                        BackgroundColor="#09C"/>
+                        </SwipeView.RightItems>
+                        <Grid ColumnDefinitions="80, 80,*" RowDefinitions="80">
+                            <Frame Padding="0"
+                               Margin="5"
+                               HasShadow="True"
+                               BorderColor="Black"
+                               CornerRadius="50"
+                               HorizontalOptions="Center">
+                                <Image Aspect="AspectFill"
+                                   Source="https://i.pinimg.com/236x/b2/7c/b9/b27cb9fc7b499bcd62c6033f1e16624f.jpg"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                            </Frame>
+                            <Label Grid.Column="1"
+                               VerticalOptions="Center"
+                               Text="{Binding Name}" 
+                               HorizontalTextAlignment="Center"
+                               FontSize="20"
+                               TextColor="Black"/>
+                            <BoxView Grid.ColumnSpan="3"
+                                 HeightRequest="1"
+                                 VerticalOptions="End"
+                                 BackgroundColor="LightGray"/>
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+</ContentPage>

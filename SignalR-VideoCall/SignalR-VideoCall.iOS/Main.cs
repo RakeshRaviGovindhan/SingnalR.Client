@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace SignalR_VideoCall.iOS
+namespace SignalRVideoCall.iOS
 {
     public class Application
     {
