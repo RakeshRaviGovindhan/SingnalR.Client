@@ -14,7 +14,6 @@ namespace SignalRVideoCall.Service
     public class BaseService
     {
         private static SemaphoreSlim semaphoreSlim = new SemaphoreSlim(1, 1);
-        protected readonly ISessionService SessionService;
 
         /// <summary>
         /// Gets or sets the base address.
@@ -104,7 +103,7 @@ namespace SignalRVideoCall.Service
                                     RefreshToken = user.RefreshToken,
                                     TokenExpireTime = user.TokenExpireTimes
                                 });
-                                token = await SessionService.GetToken();
+                                token = await NativeOperation.SessionService.GetToken();
                             }
                             else
                             {

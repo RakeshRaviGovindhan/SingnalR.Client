@@ -1,4 +1,5 @@
-﻿using SignalRVideoCall.Model;
+﻿using SignalRVideoCall.Core;
+using SignalRVideoCall.Model;
 using SignalRVideoCall.Service;
 using SignalRVideoCall.Service.Interface;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace SignalRVideoCall.Service
         /// <returns>This methode returns nothing.</returns>
         public async Task LogOut()
         {
-            await SessionService.LogOut();
+            await NativeOperation.SessionService.LogOut();
         }
 
         public async Task<UserModel> RefreshToken(string token)
