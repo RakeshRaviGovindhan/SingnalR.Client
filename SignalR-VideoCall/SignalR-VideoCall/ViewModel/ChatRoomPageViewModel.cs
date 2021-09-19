@@ -93,7 +93,7 @@ namespace SignalRVideoCall.ViewModel
         private void AddMessage(string userName, string message, bool isOwner)
         {
             var tempList = MessagesList.ToList();
-            tempList.Add(new MessageModel { IsOwnerMessage = isOwner, Message = message, UseName = userName });
+            tempList.Add(new MessageModel { IsOwnerMessage = isOwner, Message = message, UserName = userName });
             MessagesList = new List<MessageModel>(tempList);
             Message = string.Empty;
         }
